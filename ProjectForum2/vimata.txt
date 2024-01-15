@@ -1,0 +1,10 @@
+kaname DB me 3 Table Posts,topics,users
+
+kaname index(main page)
+
+kaname create user page,leitourgei plhrws kai thetika k arnitika.kai stelnei mnmta
+antistoixa. kanei redirect sto login page me mnm! alliws soy leei oti einai lathos to username
+kai oti uparxei
+
+kaname login page douleuei to login kai me arnitiko tropo kai me thetiko kai stelnei mnmta
+kai kanei riderect!!

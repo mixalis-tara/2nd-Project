@@ -1,0 +1,50 @@
+/* Add your login page specific styles here */
+
+main {
+    margin-top: 50px; /* Adjust the margin based on your design */
+}
+
+form {
+    max-width: 400px; /* Adjust the width based on your design */
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.messageWelcome {
+    background-color: #d4edda; /* Green background color (or any color you prefer) */
+    color: #155724; /* Dark green text color (or any text color you prefer) */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb; /* Dark green border color (or any border color you prefer) */
+    border-radius: 5px;
+    font-weight: bold;
+}

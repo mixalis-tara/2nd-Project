@@ -82,3 +82,15 @@
 .comment-section button:hover {
     background-color: #0056b3;
 }
+.post-header button {
+    background-color: #5b5e60;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.post-header button:hover {
+    background-color: #5b5e608c;
+}

@@ -1,14 +1,84 @@
 .post {
-    border: 1px solid #ddd;
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 8px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom:5px;
+    text-align: center; /* Center the text */
 }
 
+.post-section h3 {
+    color: #ffffff; /* Set the text color to white */
+    text-shadow:
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px 1px 0 #000,
+         1px 1px 0 #000; /* Create a shadow effect around the text */
+}
 .post-header {
     font-weight: bold;
 }
 
 .post-content {
     margin-top: 10px;
+}
+.createTopicButton {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.createTopicButton:hover {
+    background-color: #0056b3;
+}
+
+.create-topic {
+    text-align: center; /* Center the text in the create-topic section */
+    margin-top: 20px; /* Add margin to separate from the latest-topics section */
+}
+
+.topic-details {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center; /* Center the text */
+}
+.comment-section {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 3px;
+    padding: 2px;
+    margin-bottom: 3px;
+    text-align: center; /* Center the text */
+}
+
+.comment-section label {
+    font-weight: bold;
+    display: block; /* Make the label a block element for better spacing */
+    margin-bottom: 5px;
+}
+
+.comment-section textarea {
+    width: 100%;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    height: 10px; /* Adjust the height as needed */
+    margin-bottom: 10px;
+}
+.comment-section button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.comment-section button:hover {
+    background-color: #0056b3;
 }

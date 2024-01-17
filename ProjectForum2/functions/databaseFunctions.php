@@ -211,5 +211,131 @@ function getPostsForTopic($topicID) {
     }
 }
 
+function executeQueryPrepared($sql, $params) {
+    exitOnEmptyInput($sql, "Empty query in line: " . __LINE__);
+
+    $conn = defaultConnectToDatabase();
+    $stmt = $conn->prepare($sql);
+
+    if ($stmt) {
+        // Bind parameters
+        if (!empty($params)) {
+            $types = '';
+            foreach ($params as $param) {
+                if (is_int($param)) {
+                    $types .= 'i'; // integer
+                } elseif (is_double($param)) {
+                    $types .= 'd'; // double
+                } else {
+                    $types .= 's'; // string
+                }
+            }
+            $stmt->bind_param($types, ...$params);
+        }
+
+        // Execute the statement
+        $stmt->execute();
+
+        if ($stmt->errno) {
+            echo "Error executing query: " . $stmt->error;
+        } else {
+            echo "Query executed successfully!" . "<br>" . $sql . "<br>";
+        }
+
+        // Close the statement
+        $stmt->close();
+    } else {
+        echo "Failed to prepare statement: " . $conn->error;
+    }
+
+    // Close the connection
+    $conn->close();
+}
+
+function selectFromDbPrepared($sql, $params): array {
+    exitOnEmptyInput($sql, "Empty 'select' query in line: " . __LINE__);
+
+    $conn = defaultConnectToDatabase();
+    $stmt = $conn->prepare($sql);
+
+    if ($stmt) {
+        // Bind parameters
+        if (!empty($params)) {
+            $types = '';
+            foreach ($params as $param) {
+                if (is_int($param)) {
+                    $types .= 'i'; // integer
+                } elseif (is_double($param)) {
+                    $types .= 'd'; // double
+                } else {
+                    $types .= 's'; // string
+                }
+            }
+            $stmt->bind_param($types, ...$params);
+        }
+
+        // Execute the statement
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $data = [];
+
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        // Close the statement
+        $stmt->close();
+    } else {
+        echo "Failed to prepare statement: " . $conn->error;
+    }
+
+    // Close the connection
+    $conn->close();
+
+    return $data;
+}
+function getPostDetails($postID) {
+    exitOnEmptyInput($postID, "Empty 'postID' parameter in line: " . __LINE__);
+
+    $conn = defaultConnectToDatabase();
+
+    // Prepare and execute the SQL query to fetch post details
+    $sql = "SELECT PostID, TopicID, UserID, Content, DateCreated
+            FROM posts
+            WHERE PostID = $postID";
+
+    $result = $conn->query($sql);
+
+    if (!$result) {
+        echo "Error retrieving post details: " . $conn->error;
+        $conn->close();
+        return null;
+    }
+
+    // Fetch the post details
+    $postDetails = $result->fetch_assoc();
+
+    $conn->close();
+
+    return $postDetails;
+}
+
+function deletePost($postID) {
+    exitOnEmptyInput($postID, "Empty 'postID' parameter in line: " . __LINE__);
+
+    $conn = defaultConnectToDatabase();
+
+    // Prepare and execute the SQL query to delete the post
+    $sql = "DELETE FROM posts WHERE PostID = $postID";
+
+    $result = $conn->query($sql);
+
+    if (!$result) {
+        echo "Error deleting post: " . $conn->error;
+    }
+
+    $conn->close();
+}
 
 ?>

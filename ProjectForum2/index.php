@@ -23,7 +23,7 @@ if (isset($_GET['message'])) {
     <title>Forum - Main Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style/styleMain.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     
@@ -38,6 +38,9 @@ if (isset($_GET['message'])) {
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <?php
+                    if (isUserAdmin()) {
+                    echo '<li><a href="addUserAsAdmin.php">Add User</a></li>';
+                    }
                     // Check if the user is logged in
                     if (existsLoggedUser()) {
                         echo '<li><a href="logout.php">Logout</a></li>';
@@ -59,6 +62,13 @@ if (isset($_GET['message'])) {
                     <li>
                         <a href="topics.php?topic_id=<?= $topic['TopicID']; ?>"><?= htmlspecialchars($topic['Title']); ?></a>
                         <p><?= $topic['Content']; ?> Date Created: <?= htmlspecialchars($topic['DateCreated']); ?></p>
+                        <!-- Display the delete button only for admin -->
+                            <?php if (isUserAdmin()) : ?>
+                                <form action="servers/deleteTopicServer.php" method="post" style="display: inline;">
+                                <input type="hidden" name="topic_id" value="<?= $topic['TopicID']; ?>">
+                                <button type="submit" style="background-color: #dc3545; color: #ffffff; padding: 5px 10px; border: none; border-radius: 3px; cursor: pointer; font-size: 14px;" onclick="return confirm('Are you sure you want to delete this topic?');">Delete</button>
+                                </form>
+                            <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -80,7 +90,6 @@ if (isset($_GET['message'])) {
         </div>
     </footer>
 
-    <!-- Add your JavaScript scripts or link to external scripts here -->
 
 </body>
 </html>

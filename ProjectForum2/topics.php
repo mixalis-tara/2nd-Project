@@ -32,6 +32,8 @@ if (isset($_GET['topic_id'])) {
     <link rel="stylesheet" type="text/css" href="style/styleMain.css">
     <link rel="stylesheet" type="text/css" href="style/styleTopics.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>    
     <header>
@@ -69,6 +71,13 @@ if (isset($_GET['topic_id'])) {
             <div class="post">
                 <div class="post-header">
                     <p>Posted by User<?php echo $post['UserID']; ?> | Date: <?php echo $post['DateCreated']; ?></p>
+                            <?php if (existsLoggedUser() && isUserAdmin()) : ?>
+                            <!-- Display delete button only for admin users -->
+                            <form action="servers/deletePostServer.php" method="post">
+                                <input type="hidden" name="post_id" value="<?php echo $post['PostID']; ?>">
+                                <button type="submit" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
+                            </form>
+                            <?php endif; ?>
                 </div>
                 <div class="post-content">
                     <p><?php echo $post['Content']; ?></p>
@@ -80,16 +89,31 @@ if (isset($_GET['topic_id'])) {
         <?php if (existsLoggedUser()) : ?>
             <!-- Add a "Comment" button for logged-in users -->
             <section class="comment-section">
-            <form action="servers/commentServer.php" method="post">
+            <form id="commentSection" action="servers/commentServer.php" method="post">
             <input type="hidden" name="topic_id" value="<?php echo $topicID; ?>">
             <input type="hidden" name="parent_post_id" value="<?php echo $parentPostID; ?>">
             <label for="comment">Your Comment:</label>
             <textarea id="comment" name="comment" rows="4" required></textarea>
             <br>
-            <button type="submit">Comment</button>
+            <button type="submit" onclick="submitForm()">Comment</button>
             </form>
 
             </section>
+
+            <script>
+                tinymce.init({
+                    selector: '#comment'
+                });
+
+                function submitForm() {
+                // Update the original textarea with TinyMCE content
+                var content = tinymce.get('comment').getContent();
+                document.getElementById('comment').value = content;
+
+                // Submit the form
+                document.getElementById('commentSection').submit();
+            }
+            </script>
         <?php endif; ?>
     </main>
 

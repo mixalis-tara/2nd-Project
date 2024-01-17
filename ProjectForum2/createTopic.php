@@ -51,7 +51,7 @@ if (!existsLoggedUser()) {
     <main class="container">
         <?php if (existsLoggedUser()) : ?>
             <section class="create-topic">
-            <h2>Create a New Topic</h2>
+            <h3>Create a New Topic</h3>
             <form id="createTopicForm" action="servers/createTopicServer.php" method="post">
                 <!-- Add your form fields here (e.g., Title, Content) -->
                 <label for="title">Title:</label>

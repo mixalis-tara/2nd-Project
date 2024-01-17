@@ -86,7 +86,7 @@ if (isset($_GET['message'])) {
 
     <footer>
         <div class="container">
-            <!-- Add footer content -->
+            <h2>Tara Forums</h2>
         </div>
     </footer>
 

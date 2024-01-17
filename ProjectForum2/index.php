@@ -10,7 +10,7 @@ $topics = getLatestTopics();
 if (isset($_GET['message'])) {
     $loginMessage = $_GET['message'];
     echo '<div class="loginMessage">' . htmlspecialchars($loginMessage) . '</div>';
-    // Clear the welcome message from the URL to avoid displaying it on page reload
+    
 }
 
 ?>
@@ -86,7 +86,7 @@ if (isset($_GET['message'])) {
 
     <footer>
         <div class="container">
-            <h2>Tara Forums</h2>
+            <h4>Tara Forums</h4>
         </div>
     </footer>
 

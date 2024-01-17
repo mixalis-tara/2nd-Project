@@ -74,7 +74,7 @@ startSession();
 
             <footer>
             <div class="container">
-                <!-- Add footer content -->
+            <h4>Tara Forums</h4>
             </div>
             </footer>
 

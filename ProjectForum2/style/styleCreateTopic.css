@@ -1,27 +1,3 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* Set a light background color */
-}
-
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-}
-
-.container {
-    max-width: 800px; /* Adjust the maximum width as needed */
-    margin: 0 auto;
-}
-
-.logo {
-    float: left;
-}
-
-nav {
-    float: right;
-}
-
 nav ul {
     list-style: none;
     margin: 0;

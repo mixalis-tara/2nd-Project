@@ -57,11 +57,10 @@ if (isset($_GET['message'])) {
 
     <footer>
         <div class="container">
-            <!-- Add footer content -->
+        <h4>Tara Forums</h4>
         </div>
     </footer>
 
-    <!-- Add your JavaScript scripts or link to external scripts here -->
 
 </body>
 </html>

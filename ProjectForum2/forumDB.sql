@@ -27,8 +27,9 @@ CREATE TABLE Posts (
     UserID INT,
     Content TEXT NOT NULL,
     DateCreated DATETIME NOT NULL,
-    FOREIGN KEY (ParentPostID) REFERENCES Posts(PostID), -- References itself for hierarchical structure
-    FOREIGN KEY (TopicID) REFERENCES Topics(TopicID), -- Corrected: References the TopicID in Topics table
-    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+    FOREIGN KEY (ParentPostID) REFERENCES Posts(PostID) ON DELETE CASCADE, -- References itself for hierarchical structure
+    FOREIGN KEY (TopicID) REFERENCES Topics(TopicID) ON DELETE CASCADE, -- References the TopicID in Topics table
+    FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE
 );
+
 

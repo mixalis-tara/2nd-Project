@@ -32,4 +32,9 @@ CREATE TABLE Posts (
     FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE
 );
 
+INSERT INTO Users (Username, Email, Role, Password)
+VALUES
+('User1', ' ', '6985647891', 'user', '1234'),
+('Admin1', 'admin@gmail.com ', 'admin', '1234');
+
 

@@ -10,7 +10,7 @@ $topics = getLatestTopics();
 if (isset($_GET['message'])) {
     $loginMessage = $_GET['message'];
     echo '<div class="loginMessage">' . htmlspecialchars($loginMessage) . '</div>';
-    
+    // Clear the welcome message from the URL to avoid displaying it on page reload
 }
 
 ?>
@@ -61,12 +61,13 @@ if (isset($_GET['message'])) {
                 <?php foreach ($topics as $topic) : ?>
                     <li>
                         <a href="topics.php?topic_id=<?= $topic['TopicID']; ?>"><?= htmlspecialchars($topic['Title']); ?></a>
-                        <p><?= $topic['Content']; ?> Date Created: <?= htmlspecialchars($topic['DateCreated']); ?></p>
+                        <p>Created by: <?= getUsernameById($topic['UserID']); ?></p>
+                        <p>Date Created: <?= htmlspecialchars($topic['DateCreated']); ?></p>
                         <!-- Display the delete button only for admin -->
                             <?php if (isUserAdmin()) : ?>
-                                <form class="delete-button" action="servers/deleteTopicServer.php" method="post" style="display: inline;">
+                                <form action="servers/deleteTopicServer.php" method="post" style="display: inline;">
                                 <input type="hidden" name="topic_id" value="<?= $topic['TopicID']; ?>">
-                                <button type="submit" onclick="return confirm('Are you sure you want to delete this topic?');">Delete</button>
+                                <button type="submit" style="background-color: #dc3545; color: #ffffff; padding: 5px 10px; border: none; border-radius: 3px; cursor: pointer; font-size: 14px;" onclick="return confirm('Are you sure you want to delete this topic?');">Delete</button>
                                 </form>
                             <?php endif; ?>
                     </li>
@@ -86,7 +87,7 @@ if (isset($_GET['message'])) {
 
     <footer>
         <div class="container">
-            <h4>Tara Forums</h4>
+            <!-- Add footer content -->
         </div>
     </footer>
 

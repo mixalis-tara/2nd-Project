@@ -61,7 +61,7 @@ if (isset($_GET['topic_id'])) {
     <main class="container">
         <section class="topic-details">
             <h2><?php echo htmlspecialchars($topicDetails['Title']); ?></h2>
-            <p>Started by User<?php echo $topicDetails['UserID']; ?> | Date: <?php echo $topicDetails['DateCreated']; ?></p>
+            <p>Started by User <?= getUsernameById($topicDetails['UserID']); ?> | Date: <?php echo $topicDetails['DateCreated']; ?></p>
             <p><?php echo ($topicDetails['Content']); ?></p>
         </section>
 
@@ -70,7 +70,7 @@ if (isset($_GET['topic_id'])) {
         <?php foreach ($posts as $post) : ?>
             <div class="post">
                 <div class="post-header">
-                    <p>Posted by User<?php echo $post['UserID']; ?> | Date: <?php echo $post['DateCreated']; ?></p>
+                    <p>Posted by User <?= getUsernameById($post['UserID']); ?> | Date: <?php echo $post['DateCreated']; ?></p>
                             <?php if (existsLoggedUser() && isUserAdmin()) : ?>
                             <!-- Display delete button only for admin users -->
                             <form action="servers/deletePostServer.php" method="post">
@@ -119,9 +119,10 @@ if (isset($_GET['topic_id'])) {
 
     <footer>
         <div class="container">
-        <h4>Tara Forums</h4>
+            <!-- Add footer content -->
         </div>
     </footer>
 
+    <!-- Add your JavaScript scripts or link to external scripts here -->
 </body>
 </html>

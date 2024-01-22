@@ -64,5 +64,11 @@ function logUserOut()
         echo "No user to log out!"  . "<br>";
     }
 }
+function getUsernameById($userID) {
+    $sql = "SELECT Username FROM Users WHERE UserID = ?";
+    $result = selectFromDbPrepared($sql, [$userID]);
+    
+    return $result[0]['Username'] ?? '';
+}
 
 ?>

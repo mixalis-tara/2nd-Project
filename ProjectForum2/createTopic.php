@@ -22,7 +22,7 @@ if (!existsLoggedUser()) {
     <link rel="stylesheet" type="text/css" href="style/styleMain.css">
     <link rel="stylesheet" type="text/css" href="style/styleCreateTopic.css">
 
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/v9vbvxfckcuj8mqfo6mn3j3cws9frtfcc9359xl0wjj660sx/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
 </head>
 <body>

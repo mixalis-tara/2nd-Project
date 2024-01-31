@@ -33,7 +33,7 @@ if (isset($_GET['topic_id'])) {
     <link rel="stylesheet" type="text/css" href="style/styleTopics.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/v9vbvxfckcuj8mqfo6mn3j3cws9frtfcc9359xl0wjj660sx/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>    
     <header>

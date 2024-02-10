@@ -3,9 +3,10 @@ Forum Website Project
 
 This project is a forum website built using HTML, JavaScript, PHP, CSS, and databases to facilitate online discussions and community interactions.
 
-Introduction
+## Introduction
 
-The forum website project aims to provide a platform for users to engage in discussions, ask questions, and share information on various topics. It allows users to register, create posts, comment on posts, and interact with other users within the community.
+The forum website project aims to provide a platform for users to engage in discussions, ask questions, and share information on various topics. 
+It allows users to register, create posts, comment on posts, and interact with other users within the community.
 
 ## Features
 
